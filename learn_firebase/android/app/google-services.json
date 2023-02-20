@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "467320692272",
+    "project_id": "ecommerce-88804",
+    "storage_bucket": "ecommerce-88804.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467320692272:android:bffb1e0030b8fbb7e517f5",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467320692272-nvkam5so4q4josmit0fne6j9mktd7ce3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBigVmhne2P3_u96mJml7EIG7NxkjnJnpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467320692272-nvkam5so4q4josmit0fne6j9mktd7ce3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "467320692272-unrmva2qsdp7uu2jea9345aqrurasg3o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eCommerce"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:467320692272:android:5957f9692abe11d3e517f5",
+        "android_client_info": {
+          "package_name": "com.example.learn_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "467320692272-nvkam5so4q4josmit0fne6j9mktd7ce3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBigVmhne2P3_u96mJml7EIG7NxkjnJnpI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "467320692272-nvkam5so4q4josmit0fne6j9mktd7ce3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "467320692272-unrmva2qsdp7uu2jea9345aqrurasg3o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eCommerce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
