@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart'
+    hide EmailAuthProvider, PhoneAuthProvider;
+import 'package:learn_firebase/authentication.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets.dart';
+import 'controller/app_state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -17,6 +22,12 @@ class HomePage extends StatelessWidget {
           const SizedBox(height: 8),
           const IconAndDetail(Icons.calendar_today, 'October 30'),
           const IconAndDetail(Icons.location_city, 'San Francisco'),
+          Consumer<ApplicationState>(
+              builder: ((context, appState, _) => AuthFunc(
+                  loggedIn: appState.loggedIn,
+                  signOut: () {
+                    FirebaseAuth.instance.signOut();
+                  }))),
           const Divider(
             height: 8,
             thickness: 1,
