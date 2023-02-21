@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart'
+    hide EmailAuthProvider, PhoneAuthProvider;
+import 'package:learn_firebase/authentication.dart';
+import 'package:learn_firebase/guest_book.dart';
+import 'package:provider/provider.dart';
 
 import 'widgets.dart';
+import 'controller/app_state.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // var size = SizedBox()..height = 12..width = 14
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Firebase Meetup'),
-      ),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
+          child: Container(
+            child: Text('Testing'),
+          )),
       body: ListView(
         children: <Widget>[
           Image.asset('assets/codelab.png'),
           const SizedBox(height: 8),
           const IconAndDetail(Icons.calendar_today, 'October 30'),
           const IconAndDetail(Icons.location_city, 'San Francisco'),
+          Consumer<ApplicationState>(
+              builder: ((context, appState, _) => AuthFunc(
+                  loggedIn: appState.loggedIn,
+                  signOut: () {
+                    FirebaseAuth.instance.signOut();
+                  }))),
           const Divider(
             height: 8,
             thickness: 1,
@@ -28,6 +43,19 @@ class HomePage extends StatelessWidget {
           const Paragraph(
             'Join us for a day full of Firebase Workshops and Pizza!',
           ),
+          const Header('Discussion'),
+          Consumer<ApplicationState>(
+            builder: (context, appState, _) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if(appState.loggedIn)...[const Header('Discussion'), GuestBook(
+                  addMessage: (message) => appState.addMessageToCollection(message),
+                  messages: appState.guestBookMessage,
+                ),]
+              ],
+            ),
+
+          )
         ],
       ),
     );
