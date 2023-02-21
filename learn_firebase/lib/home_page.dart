@@ -13,9 +13,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Firebase Meetup'),
-      ),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
+          child: Container(
+            child: Text('Testing'),
+          )),
       body: ListView(
         children: <Widget>[
           Image.asset('assets/codelab.png'),
