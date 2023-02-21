@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'
     hide EmailAuthProvider, PhoneAuthProvider;
 import 'package:learn_firebase/authentication.dart';
+import 'package:learn_firebase/guest_book.dart';
 import 'package:provider/provider.dart';
 
 import 'widgets.dart';
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // var size = SizedBox()..height = 12..width = 14
     return Scaffold(
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -41,6 +43,19 @@ class HomePage extends StatelessWidget {
           const Paragraph(
             'Join us for a day full of Firebase Workshops and Pizza!',
           ),
+          const Header('Discussion'),
+          Consumer<ApplicationState>(
+            builder: (context, appState, _) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if(appState.loggedIn)...[const Header('Discussion'), GuestBook(
+                  addMessage: (message) => appState.addMessageToCollection(message),
+                  messages: appState.guestBookMessage,
+                ),]
+              ],
+            ),
+
+          )
         ],
       ),
     );
